@@ -81,14 +81,27 @@ $(function() {
 
     });
 
-    /* TODO: Write a new test suite named "Initial Entries" */
+    /* Makes sure loadFeed works */
+    describe('Initial Entries', function() {
 
-        /* TODO: Write a test that ensures when the loadFeed
+        var feed = $('.feed');
+
+        beforeEach(function(done) {
+            loadFeed(0, function() {
+                done();
+            });
+        });
+
+        /* A test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+        it('are non-empty', function(done) {
+            expect(feed.children().length).toBeGreaterThan(0);
+            expect(feed.has('.entry')).toBeTruthy();
+            done();
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
@@ -96,4 +109,5 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
 }());
