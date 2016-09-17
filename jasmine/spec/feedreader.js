@@ -100,50 +100,38 @@ $(function() {
     /* Makes sure loadFeed works */
     describe('Initial Entries', function() {
 
-        var feed = $('.feed');
-
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
         /* A test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          */
-        it('are non-empty', function(done) {
-            expect(feed.children().length).toBeGreaterThan(0);
-            expect(feed.has('.entry')).toBeTruthy();
-            done();
+        it('are non-empty', function() {
+            expect($('.feed').children().length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
     });
 
     /* Test suite for New Feed Selection */
     describe('New Feed Selection', function() {
 
-        var feed = $('.feed');
-        var first, second;
-
-        beforeEach(function(done) {
-            first = feed.children().text();
-
-            loadFeed(1, function() {
-                second = feed.children().text();
-                done();
-            });
-        });
+        var $feed = $('.feed');
 
         /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
          it('should load different content', function(done){
-            expect(first).not.toBe(second);
-            done();
-         });
+            var first, second;
 
-         afterEach(function() {
-            loadFeed(0);
+            first = $feed.children().text();
+
+            loadFeed(1, function() {
+                second = $feed.children().text();
+                expect(first).not.toBe(second);
+                done();
+            });
          });
     });
 }());
