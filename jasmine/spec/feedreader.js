@@ -47,24 +47,24 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('have a non-empty url', function() {
+        it('have a non-empty url', function() {
             allFeeds.forEach(function(item) {
                 expect(item.url).toBeDefined();
                 expect(item.url).not.toBe('');
             });
-         });
+        });
 
 
         /* A test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('have a non-empty name', function() {
+        it('have a non-empty name', function() {
             allFeeds.forEach(function(item) {
                 expect(item.name).toBeDefined();
                 expect(item.name).not.toBe('');
             });
-         });
+        });
     });
 
 
@@ -77,9 +77,9 @@ $(function() {
         /* A test that ensures the menu element is
          * hidden by default.
          */
-         it('is hidden by default', function() {
+        it('is hidden by default', function() {
             expect(body.hasClass('menu-hidden')).toBeTruthy();
-         });
+        });
 
 
          /* A test that ensures the menu changes
