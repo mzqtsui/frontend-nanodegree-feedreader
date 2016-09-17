@@ -9,6 +9,21 @@
  * to ensure they don't run until the DOM is ready.
  */
 $(function() {
+    /* Google tests */
+    describe('Google', function() {
+        /* Check that google is defined */
+        it('is defined', function() {
+            expect(google).toBeDefined();
+        });
+
+        /* Check that required functions exist */
+        it('has required functions', function() {
+            expect(google.load).toBeDefined();
+            expect(google.setOnLoadCallback).toBeDefined();
+        });
+    });
+
+
     /* This is our first test suite - a test suite just contains
     * a related set of tests. This suite is all about the RSS
     * feeds definitions, the allFeeds variable in our application.
