@@ -71,14 +71,14 @@ $(function() {
     /* Tests visibility of the menu */
     describe('The menu', function() {
 
-        var body = $('body');
-        var menuIcon = $('.menu-icon-link');
+        var $body = $('body');
+        var $menuIcon = $('.menu-icon-link');
 
         /* A test that ensures the menu element is
          * hidden by default.
          */
         it('is hidden by default', function() {
-            expect(body.hasClass('menu-hidden')).toBeTruthy();
+            expect($body.hasClass('menu-hidden')).toBeTruthy();
         });
 
 
@@ -88,11 +88,11 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('changes visibility when menu icon is clicked', function() {
-            menuIcon.trigger('click');
-            expect(body.hasClass('menu-hidden')).toBeFalsy();
+            $menuIcon.trigger('click');
+            expect($body.hasClass('menu-hidden')).toBeFalsy();
 
-            menuIcon.trigger('click');
-            expect(body.hasClass('menu-hidden')).toBeTruthy();
+            $menuIcon.trigger('click');
+            expect($body.hasClass('menu-hidden')).toBeTruthy();
         });
 
     });
