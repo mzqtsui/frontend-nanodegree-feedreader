@@ -122,7 +122,7 @@ $(function() {
         /* A test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
-         it('should load different content', function(done){
+        it('should load different content', function(done){
             var first, second;
 
             first = $feed.children().text();
@@ -132,6 +132,6 @@ $(function() {
                 expect(first).not.toBe(second);
                 done();
             });
-         });
+        });
     });
 }());
